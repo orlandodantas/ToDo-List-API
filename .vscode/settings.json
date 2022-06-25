@@ -10,4 +10,6 @@
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single"
 }
