@@ -1,7 +1,7 @@
 import Joi from 'joi';
 import { BadRequestError, ConflictError, NotFoundError } from 'restify-errors';
 import { IUserModel, UserDTO } from '../models/interfaces';
-import Auth, { Crypt } from '../utils';
+import JWTAuthenticate, { Crypt } from '../utils';
 import IUserService from './interfaces';
 
 export default class UserService implements IUserService {
@@ -13,6 +13,14 @@ export default class UserService implements IUserService {
 
   public async getById(id: string): Promise<UserDTO> {
     const userData = await this._userModel.getById(id);
+
+    if (!userData) throw new NotFoundError('User not found!');
+
+    return userData;
+  }
+
+  public async getByEmail(email: string): Promise<UserDTO> {
+    const userData = await this._userModel.getByEmail(email);
 
     if (!userData) throw new NotFoundError('User not found!');
 
@@ -40,7 +48,7 @@ export default class UserService implements IUserService {
 
     const { id, name: userName, email: userEmail } = await this._userModel.create({ name, email, password: hash });
 
-    return Auth.encrypt({ id, name: userName, email: userEmail });
+    return JWTAuthenticate.encrypt({ id, name: userName, email: userEmail });
   }
 
   /* public async updateById(id: string, user: UserDTO): Promise<UserDTO> {
