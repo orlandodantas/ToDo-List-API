@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import { StatusCodes } from 'http-status-codes';
