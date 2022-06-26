@@ -1,6 +1,6 @@
-import Auth from './Auth';
 import Crypt from './Crypt';
+import JWTAuthenticate from './JWTAuthenticate';
 
-export default Auth;
+export default JWTAuthenticate;
 
 export { Crypt };
