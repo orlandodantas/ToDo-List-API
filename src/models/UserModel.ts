@@ -14,6 +14,12 @@ export default class UserModel implements IUserModel {
     return userData as UserDTO;
   }
 
+  public async getByEmail(email: string): Promise<UserDTO> {
+    const userData = await this._connection.user.findUnique({ where: { email } });
+
+    return userData as UserDTO;
+  }
+
   public async create(user: UserDTO): Promise<UserDTO> {
     const userData = await this._connection.user.create({
       data: user,
@@ -35,7 +41,7 @@ export default class UserModel implements IUserModel {
     return userData as UserDTO;
   }
 
-  public async delete(id: string): Promise<void> {
+  public async deleteById(id: string): Promise<void> {
     await this._connection.user.delete({
       where: { id },
     });
