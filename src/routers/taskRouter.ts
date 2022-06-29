@@ -1,16 +1,17 @@
 import { Router } from 'express';
 import { TaskFactory } from '../factories';
+import authMiddleware from '../middleware/authMiddleware';
 
 const route = Router();
 
 const taskController = TaskFactory.create();
 route
-  .get('/', taskController.getAll)
-  .get('/:id', taskController.getById)
-  .post('/', taskController.create)
-  .put('/:id/description', taskController.updateDescriptionById)
-  .put('/:id/status', taskController.updateStatusById)
-  .delete('/:id', taskController.deleteById)
-  .delete('/done', taskController.deleteAllDone);
+  .get('/', authMiddleware, taskController.getAll)
+  .get('/:id', authMiddleware, taskController.getById)
+  .post('/', authMiddleware, taskController.create)
+  .put('/:id/description', authMiddleware, taskController.updateDescriptionById)
+  .put('/:id/status', authMiddleware, taskController.updateStatusById)
+  .delete('/:id', authMiddleware, taskController.deleteById)
+  .delete('/done', authMiddleware, taskController.deleteAllDone);
 
 export default route;
