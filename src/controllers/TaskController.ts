@@ -8,6 +8,14 @@ export default class TaskController implements ITaskController {
 
   constructor(taskService: ITaskService) {
     this._taskService = taskService;
+
+    this.getAll = this.getAll.bind(this);
+    this.getById = this.getById.bind(this);
+    this.create = this.create.bind(this);
+    this.updateDescriptionById = this.updateDescriptionById.bind(this);
+    this.updateStatusById = this.updateStatusById.bind(this);
+    this.deleteById = this.deleteById.bind(this);
+    this.deleteAllDone = this.deleteAllDone.bind(this);
   }
 
   public async getAll(req: Request, res: Response): Promise<Response> {
