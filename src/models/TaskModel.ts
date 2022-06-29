@@ -24,6 +24,14 @@ export default class TaskModel implements ITaskModel {
     return taskData as TaskDTO;
   }
 
+  public async getAllDone(userId: string): Promise<TaskDTO[]> {
+    const tasksData = await this._connection.task.findMany({
+      where: { status: 'PRONTO', userId },
+    });
+
+    return tasksData as TaskDTO[];
+  }
+
   public async create(task: TaskDTO, userId: string): Promise<TaskDTO> {
     const taskData = await this._connection.task.create({
       data: {
@@ -59,9 +67,9 @@ export default class TaskModel implements ITaskModel {
     });
   }
 
-  public async deleteAllDone(id: string): Promise<void> {
+  public async deleteAllDone(userId: string): Promise<void> {
     await this._connection.task.deleteMany({
-      where: { id, status: 'PRONTO' },
+      where: { status: 'PRONTO', userId },
     });
   }
 }
