@@ -32,10 +32,10 @@ export default class TaskModel implements ITaskModel {
     return tasksData as TaskDTO[];
   }
 
-  public async create(task: TaskDTO, userId: string): Promise<TaskDTO> {
+  public async create(description: string, userId: string): Promise<TaskDTO> {
     const taskData = await this._connection.task.create({
       data: {
-        description: task.description,
+        description,
         userId,
       },
     });
