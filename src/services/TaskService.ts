@@ -52,7 +52,11 @@ export default class TaskService implements ITaskService {
     return taskData;
   }
 
-  public async updateDescriptionById(id: string, description: string, userId: string): Promise<TaskDTO> {
+  public async updateDescriptionById(
+    id: string,
+    description: string,
+    userId: string,
+  ): Promise<TaskDTO> {
     const { error } = Joi.object({
       id: Joi.string().min(10).required(),
       description: Joi.string().min(3).required(),
@@ -72,7 +76,9 @@ export default class TaskService implements ITaskService {
   public async updateStatusById(id: string, status: StatusTask, userId: string): Promise<TaskDTO> {
     const { error } = Joi.object({
       id: Joi.string().min(10).required(),
-      status: Joi.string().required(),
+      status: Joi.string()
+        .valid(StatusTask.PENDENTE, StatusTask.ANDAMENTO, StatusTask.PRONTO)
+        .required(),
       userId: Joi.string().min(10).required(),
     }).validate({ id, status, userId });
 
