@@ -39,17 +39,15 @@ export default class TaskService implements ITaskService {
     return taskData;
   }
 
-  public async create(task: TaskDTO, userId: string): Promise<TaskDTO> {
+  public async create(description: string, userId: string): Promise<TaskDTO> {
     const { error } = Joi.object({
-      task: Joi.object({
-        description: Joi.string().required(),
-      }).required(),
+      description: Joi.string().required(),
       userId: Joi.string().min(10).required(),
-    }).validate({ task, userId });
+    }).validate({ description, userId });
 
     if (error) throw new BadRequestError(error.message);
 
-    const taskData = await this._taskModel.create(task, userId);
+    const taskData = await this._taskModel.create(description, userId);
 
     return taskData;
   }
