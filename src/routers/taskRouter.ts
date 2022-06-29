@@ -11,7 +11,7 @@ route
   .post('/', authMiddleware, taskController.create)
   .put('/:id/description', authMiddleware, taskController.updateDescriptionById)
   .put('/:id/status', authMiddleware, taskController.updateStatusById)
-  .delete('/:id', authMiddleware, taskController.deleteById)
-  .delete('/done', authMiddleware, taskController.deleteAllDone);
+  .delete('/done', authMiddleware, taskController.deleteAllDone)
+  .delete('/:id', authMiddleware, taskController.deleteById);
 
 export default route;
