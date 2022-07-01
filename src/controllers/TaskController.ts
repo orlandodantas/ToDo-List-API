@@ -49,7 +49,11 @@ export default class TaskController implements ITaskController {
     const { id } = req.params;
     const { description } = req.body;
 
-    const taskData = await this._taskService.updateDescriptionById(id, description, userId as string);
+    const taskData = await this._taskService.updateDescriptionById(
+      id,
+      description,
+      userId as string,
+    );
 
     return res.status(StatusCodes.CREATED).json(taskData);
   }
