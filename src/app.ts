@@ -5,8 +5,8 @@ import userRouter, { authRouter, taskRouter } from './routers';
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
-app.use(cors);
 
 app.use('/users', userRouter).use('/auth', authRouter).use('/tasks', taskRouter);
 
