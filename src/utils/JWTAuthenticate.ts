@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import * as JWT from 'jsonwebtoken';
+import JWT from 'jsonwebtoken';
 import Payload from './interfaces';
 
 export default class JWTAuthenticate {

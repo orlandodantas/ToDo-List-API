@@ -15,7 +15,7 @@ export default class AuthService implements IAuthService {
 
     const userFound = await this._userService.getByEmail(email);
 
-    if (!userFound) throw new NotFoundError('Email or password invalid!');
+    // if (!userFound) throw new NotFoundError('Email or password invalid!');
 
     const isPassword = await Crypt.decrypt(password, userFound.password);
 

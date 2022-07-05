@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import 'express-async-errors';
 import { UnauthorizedError } from 'restify-errors';
 import JWTAuthenticate from '../utils';
 

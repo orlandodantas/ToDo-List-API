@@ -49,9 +49,13 @@ export default class TaskController implements ITaskController {
     const { id } = req.params;
     const { description } = req.body;
 
-    const taskData = await this._taskService.updateDescriptionById(id, description, userId as string);
+    const taskData = await this._taskService.updateDescriptionById(
+      id,
+      description,
+      userId as string,
+    );
 
-    return res.status(StatusCodes.CREATED).json(taskData);
+    return res.status(StatusCodes.OK).json(taskData);
   }
 
   public async updateStatusById(req: Request, res: Response): Promise<Response> {
@@ -61,7 +65,7 @@ export default class TaskController implements ITaskController {
 
     const taskData = await this._taskService.updateStatusById(id, status, userId as string);
 
-    return res.status(StatusCodes.CREATED).json(taskData);
+    return res.status(StatusCodes.OK).json(taskData);
   }
 
   public async deleteById(req: Request, res: Response): Promise<Response> {
