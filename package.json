@@ -4,9 +4,9 @@
   "description": "API de ToDo List Simplificada",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only --exit-child --quiet --clear src/server.ts",
-    "build": "npx tsc ./src",
+    "build": "npx tsc",
     "prettier": "npx prettier --write --ignore-unknown .",
     "lint": "npx eslint src --ext .js,.ts",
     "lint:fix": "npx eslint --fix src --ext .js,.ts",
