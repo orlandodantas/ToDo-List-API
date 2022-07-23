@@ -16,6 +16,13 @@
 
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
 
+:small_blue_diamond: [Como rodar os teste](#como-rodar-os-testes)
+
+:small_blue_diamond: [Dependências e Libs](#linguagens-dependencias-e-libs-utilizadas-books)
+
+:small_blue_diamond: [Licença](#licença)
+
+
 ## Descrição do projeto 
 
 <p align="justify">
