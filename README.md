@@ -88,10 +88,15 @@ Instale as dependências:
 npm install
 ```
 Renomei o arquivo docker-compose.yml.exemple para docker-compose.yml:
-
+> Unix:
 ```sh
-move docker-compose.yml.exemple docker-compose.yml
+mv docker-compose.yml.exemple docker-compose.yml
 ```
+> Windows:
+```sh
+rename docker-compose.yml.exemple docker-compose.yml
+```
+
 Abra o arquivo que acabou de renomear em um Editor/IDE de sua preferência por exemplo [VsCode](https://code.visualstudio.com/):
 > Onde tem MYSQL_ROOT_PASSWORD=sua_password_mysql troque sua_password_mysql por uma senha a sua escolha para ser a senha de root
 de acesso ao banco de dados. :warning: Atenção guarde esta senha que vamos usa-la mais a frente. Salve o arquivo e volte ao terminal.
@@ -102,9 +107,13 @@ Levante o container com o banco de dados MySQL:
 npm run compose:up
 ```
 Renomei o arquivo .env.exemple para .env:
-
+> Unix
 ```sh
-move .env.exemple .env
+mv .env.exemple .env
+```
+> Windows
+```sh
+rename .env.exemple .env
 ```
 
 Abra o arquivo que acabou de renomear em um Editor/IDE de sua preferência por exemplo [VsCode](https://code.visualstudio.com/):
