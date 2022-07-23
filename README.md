@@ -167,6 +167,8 @@ npm run test:coverage
 - [BCrypt Js](https://www.npmjs.com/package/bcryptjs)
 - [Cors](https://www.npmjs.com/package/cors)
 - [dotenv](https://www.npmjs.com/package/dotenv)
+- [EsLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 
 ## Licença 
 
